@@ -1,15 +1,24 @@
-/* src/App.css */
+html {
+  transform: scale(1.4);
+  transform-origin: top;
+  overflow-x: hidden;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   background-color: #f9f9f9;
   margin: 0;
   padding: 0;
 }
 
 .container {
+  width: 80%;
+  margin: auto;
   max-width: 800px;
   margin: 0 auto;
-  padding: 10px 5px; /* Reduced horizontal padding */
+  padding: 2px 2px; 
 }
 
 .hero-image {
@@ -35,40 +44,68 @@ h1, h2 {
   color: #333;
 }
 
+.toggle-button {
+  background-color: #a34100;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #ffa333;
+  transform: scale(1.1); /* Increase the size of the button */
+}
+
+/* New styles for the button container */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container a {
+  text-decoration: none;
+}
+
+.button-container .left-align {
+  margin-right: auto;
+}
+
+.button-container .right-align {
+  margin-left: auto;
+}
+
+.button-container .center-align {
+  margin: 0 auto;
+}
+
 section {
   margin-bottom: 10px;
-}
-
-.introduction, .addressing-points, .request-clarification, .personal-impact, .conclusion {
   padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
-.introduction {
-  background-color: #e6f7ff;
+section:nth-of-type(1) {
+  background-color: #f0f8ff; /* Light blue */
 }
 
-.addressing-points {
-  background-color: #fffbe6;
+section:nth-of-type(2) {
+  background-color: #f5f5dc; /* Beige */
 }
 
-.request-clarification {
-  background-color: #e6ffed;
+section:nth-of-type(3) {
+  background-color: #e6e6fa; /* Lavender */
 }
 
-.personal-impact {
-  background-color: #fff0f6;
+section:nth-of-type(4) {
+  background-color: #fffacd; /* Lemon chiffon */
 }
 
-.conclusion {
-  background-color: #f0f5ff;
-}
-
-ul, ol {
-  margin-left: 15px;
-}
-
-li {
-  margin-bottom: 5px;
+section:nth-of-type(5) {
+  background-color: #f0fff0; /* Honeydew */
 }
