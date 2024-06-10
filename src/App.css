@@ -1,0 +1,74 @@
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px 5px; /* Reduced horizontal padding */
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+main {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #333;
+}
+
+section {
+  margin-bottom: 10px;
+}
+
+.introduction, .addressing-points, .request-clarification, .personal-impact, .conclusion {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.introduction {
+  background-color: #e6f7ff;
+}
+
+.addressing-points {
+  background-color: #fffbe6;
+}
+
+.request-clarification {
+  background-color: #e6ffed;
+}
+
+.personal-impact {
+  background-color: #fff0f6;
+}
+
+.conclusion {
+  background-color: #f0f5ff;
+}
+
+ul, ol {
+  margin-left: 15px;
+}
+
+li {
+  margin-bottom: 5px;
+}
