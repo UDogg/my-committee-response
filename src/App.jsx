@@ -11,7 +11,7 @@ const App = () => {
       </header>
       <main>
         <section className="introduction">
-          <h1>Revised Notes for Co-Chair Committee</h1>
+          <h1>Notes for Co-Chair Committee</h1>
           <h2>Introduction</h2>
           <p>Dear Co-Chair Committee,</p>
           <p>Thank you for allowing me the opportunity to address the recent academic integrity violation decision. This matter is of utmost importance to me, and I hope to clarify several points and understand the rationale behind the committee's decision.</p>
