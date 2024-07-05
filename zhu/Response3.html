@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebuttal Response</title>
+    <link rel="icon" href="https://images.app.goo.gl/mwNHg8kNcDRn2bMT8" type="image/png">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 18pt;
+            margin: 20px;
+            text-align: center;
+        }
+        .code {
+            background-color: #333;
+            border: 1px solid #ddd;
+            border-left: 3px solid #f36d33;
+            color: #fff;
+            page-break-inside: avoid;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            overflow: auto;
+            padding: 1em;
+            display: block;
+            white-space: pre;
+            word-wrap: break-word;
+            margin-bottom: 1.5em;
+            text-align: left;
+        }
+        .section {
+            margin-bottom: 2em;
+        }
+        h1, h2, h3 {
+            color: #fff;
+        }
+        blockquote {
+            margin: 1em 0;
+            padding: 0.5em 1em;
+            background: #444;
+            border-left: 0.25em solid #ccc;
+            text-align: left;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #444;
+            margin: 2em 0;
+        }
+        .keyword {
+            color: #f36d33;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #f36d33;
+            color: #fff;
+            padding: 0 0.2em;
+        }
+        .contents a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+        .contents {
+            text-align: left;
+            margin-bottom: 2em;
+            color: #00bfff;
+        }
+        .button {
+            background-color: #f36d33;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Response to Additional Inputs by Instructor</h1>
+    <hr />
+    <div class="contents" id="section0">
+        <h2 style="text-align: center;">Contents</h2>
+        <ul>
+            <li><a href="#section1">1. Addressing the Use of Increment/Decrement Operators in Array Access</a></li>
+            <li><a href="#section2">2. Evidence from My Java Project</a></li>
+            <li><a href="#section3">3. Validating Alternative Implementations</a></li>
+            <li><a href="#section5">4. Conclusion</a></li>
+        </ul>
+    </div>
+    <hr />
+    <div class="section" id="section1">
+        <h2>1. Addressing the Use of Increment/Decrement Operators in Array Access</h2>
+        <blockquote>
+            "When I’m referring to the post-increment/post-decrement/pre-increment/pre-decrement usage, I’m referring to the usage within an array access, that is, inside the square brackets [] after the “parents” array field. The post/pre-increment/decrement operators are often used inside “for” loops and as standalone lines of code, but what I’m referring to as unusual is the embedded usage within an array access, which is unusual and hard to read. So I’m not saying simply using ++ or -- is unusual since that is typical usage, but using these embedded inside an array access is considered a confusing coding style since the array index is modified along with accessing the array."
+        <br>
+            -Dr. Zhu
+        </blockquote>
+        <p>
+            I want to reiterate that Java and C have near same syntax but not the same programming principles and distance from bare metal. 
+        </p>
+        <p>
+            I acknowledge that <span class="highlight">embedded usage</span> of increment and decrement operators within array access may seem uncommon for some students. However, this practice is not confusing for students who are familiar with C programming. Both <span class="highlight"><strong>Java and C have similar syntax for increment and decrement operators and fixed array sizes</strong></span>, making this operation valid and readable with proper commenting.
+        </p>
+        <p>
+            In both Java and C, the increment (<code>++</code>) and decrement (<code>--</code>) operators can be used in postfix or prefix forms. The postfix form evaluates to the value before the increment/decrement, while the prefix form evaluates to the value after the increment/decrement. This behavior is consistent in both languages, making the syntax intuitive for those familiar with one language to understand the other.
+        </p>
+        <p>
+            The point of the loop, which Dr. Zhu is refers to as<span class="highlight">"modifying the array index due to embedded usage within an array access"</span> is essential to the business logic. </p>
+            <p><i><strong>How are we supposed to traverse a tree without changing the index?</strong></i></p>
+            <p>Dr. Zhu's student samples have also modified the array index. It is a common practice in C programming, especially when traversing trees or linked lists. The increment and decrement operators are used to move the index to the next or previous element in the array, respectively.
+        </p>
+        <p>
+            For example, in the provided C code snippet from a past project, I used increment and decrement operators effectively within loops and arrays, demonstrating my familiarity with these operations:
+        </p>
+        <div class="code">
+            #include &lt;stdio.h&gt;<br>
+            #define SIZE 5<br>
+            <span class="keyword">void</span> printDonutPattern(<span class="keyword">int</span> arr[], <span class="keyword">int</span> size) {<br>
+                &nbsp;&nbsp;<span class="keyword">int</span> i = 0, j = size - 1;<br>
+                &nbsp;&nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> k = 0; k < size; k++) printf(<span class="keyword">"%d "</span>, arr[i++]);<br>
+                &nbsp;&nbsp;printf(<span class="keyword">"\n"</span>);<br>
+                &nbsp;&nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> k = 1; k < size - 1; k++) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="keyword">"%d "</span>, arr[j--]);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> l = 1; l < size - 1; l++) printf(<span class="keyword">"  "</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="keyword">"%d\n"</span>, arr[i++]);<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;<span class="keyword">for</span> (<span class="keyword">int</span> k = 0; k < size; k++) printf(<span class="keyword">"%d "</span>, arr[j--]);<br>
+                &nbsp;&nbsp;printf(<span class="keyword">"\n"</span>);<br>
+            }<br>
+            <span class="keyword">int</span> main() {<br>
+                &nbsp;&nbsp;<span class="keyword">int</span> arr[SIZE] = {1, 2, 3, 4, 5};<br>
+                &nbsp;&nbsp;printDonutPattern(arr, SIZE);<br>
+                &nbsp;&nbsp;<span class="keyword">return</span> 0;<br>
+            }<br>
+        </div>
+        <p>
+            This project was relatively insignificant, which is why it lacks comments and was not uploaded to my GitHub. However, I managed to find it in some GitLab archives. This example shows the "embedded usage" of incremental logic within loops, which is a fundamental concept applicable across various contexts, including array accesses and modification of array index in C.
+        </p>
+        <a href="#section0" class="button">Go to Contents</a>
+    </div>
+    <hr />
+
+    <div class="section" id="section2">
+        <h2>2. Evidence from My Java Project</h2>
+        <p>
+            Here is a snippet from a Java project I wrote for CMPSC 221 at Penn State, demonstrating the use of increment operators within array contexts:
+        </p>
+        <div class="code">
+            &nbsp;&nbsp;<span class="keyword">private static</span> void addAccount(int accN, String name, double balance) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (numAccounts == accounts.length) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account[] newAccounts = <span class="keyword">new</span> Account[accounts.length * 2];<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (int i = 0; i < accounts.length; i++) newAccounts[i] = accounts[i];<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accounts = newAccounts;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;accounts[numAccounts++] = <span class="keyword">new</span> Account(accN, name, balance);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"Account added: "</span> + name + <span class="keyword">" with balance "</span> + balance);<br>
+            &nbsp;&nbsp;}<br><br>
+        </div>
+
+        <p>
+            This code snippet demonstrates the use of the increment operator <code>numAccounts++</code> within an array context to add a new account to the array. The increment operator updates the index of the array after adding a new account, ensuring the next account is added at the correct position.
+        </p>
+        <p>
+            My CMPSC 221 professor gave me a perfect score on this project, indicating that the use of increment operators within array accesses is a valid and effective coding practice. This project showcases my ability to write clear and functional code in Java, which translates to C, including the use of increment operators in array contexts.
+        </p>
+        <hr />
+        <button class="button" onclick="document.getElementById('section3').scrollIntoView();">Skip Full Implementation</button>
+        <p>
+            The full Java class is provided below for reference:
+        </p>
+    
+        <div class="code">
+            import java.util.Scanner;<br><br>
+        
+            <span class="keyword">public</span> <span class="keyword">class</span> BankingSystem {<br>
+                &nbsp;&nbsp;<span class="keyword">private static</span> Account[] accounts = <span class="keyword">new</span> Account[1]; <span class="keyword">// Start with an array of size 1</span><br>
+                &nbsp;&nbsp;<span class="keyword">private static</span> int numAccounts = 0;<br><br>
+        
+                &nbsp;&nbsp;<span class="keyword">public static class</span> Account {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> int accN;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> String name;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> double balance;<br><br>
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> Account(int accN, String name, double balance) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.accN = accN;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.balance = balance;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> int getAccountNumber() { <span class="keyword">return</span> accN; }<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> String getAccountHolderName() { <span class="keyword">return</span> name; }<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> double getBalance() { <span class="keyword">return</span> balance; }<br><br>
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> void deposit(double amount) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (amount > 0) balance += amount;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span> System.out.println(<span class="keyword">"Deposit amount must be positive."</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> void withdraw(double amount) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (balance >= amount) balance -= amount;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span> System.out.println(<span class="keyword">"Insufficient funds"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Override</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> String toString() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">"Account Number: "</span> + accN + <span class="keyword">", Name: "</span> + name + <span class="keyword">", Balance: "</span> + balance;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;}<br><br>
+        
+                &nbsp;&nbsp;<span class="keyword">private static</span> void addAccount(int accN, String name, double balance) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (numAccounts == accounts.length) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account[] newAccounts = <span class="keyword">new</span> Account[accounts.length * 2];<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (int i = 0; i < accounts.length; i++) newAccounts[i] = accounts[i];<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accounts = newAccounts;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;accounts[numAccounts++] = <span class="keyword">new</span> Account(accN, name, balance);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"Account added: "</span> + name + <span class="keyword">" with balance "</span> + balance);<br>
+                &nbsp;&nbsp;}<br><br>
+        
+                &nbsp;&nbsp;<span class="keyword">private static</span> void display() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (int i = 0; i < numAccounts; i++) System.out.println(accounts[i]);<br>
+                &nbsp;&nbsp;}<br><br>
+        
+                &nbsp;&nbsp;<span class="keyword">private static</span> void bubbleSort() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (int i = 0; i < numAccounts - 1; i++) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (int j = 0; j < numAccounts - i - 1; j++) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (accounts[j].getAccountNumber() > accounts[j + 1].getAccountNumber()) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account temp = accounts[j];<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accounts[j] = accounts[j + 1];<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accounts[j + 1] = temp;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;}<br><br>
+        
+                &nbsp;&nbsp;<span class="keyword">private static</span> Account binarySearch(int accN) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;int left = 0;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;int right = numAccounts - 1;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (left &lt;= right) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int mid = left + (right - left) / 2;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (accounts[mid].getAccountNumber() == accN) <span class="keyword">return</span> accounts[mid];<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (accounts[mid].getAccountNumber() < accN) left = mid + 1;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span> right = mid - 1;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">null</span>;<br>
+                &nbsp;&nbsp;}<br><br>
+        
+                &nbsp;&nbsp;<span class="keyword">public static</span> void main(String[] args) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Scanner scanner = <span class="keyword">new</span> Scanner(System.in);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter the number of customers to add: "</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;int numCustomers = scanner.nextInt();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword">// consume newline</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (int i = 0; i < numCustomers; i++) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter account number for customer "</span> + (i + 1) + <span class="keyword">": "</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int accN = scanner.nextInt();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword"> // consume newline</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter account holder name for customer "</span> + (i + 1) + <span class="keyword">": "</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String name = scanner.nextLine();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter initial balance for customer "</span> + (i + 1) + <span class="keyword">": "</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double balance = scanner.nextDouble();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword">// consume newline</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addAccount(accN, name, balance);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        
+                    &nbsp;&nbsp;&nbsp;&nbsp;boolean exit = <span class="keyword">false</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (!exit) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"\nSelect an option:"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"1. Display all account details"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"2. Search by account number"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"3. Deposit amount"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"4. Withdraw amount"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"5. Exit"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int choice = scanner.nextInt();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword">// consume newline</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">switch</span> (choice) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> 1:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> 2:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter account number to search: "</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int accNumber = scanner.nextInt();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword">// consume newline</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account acc = binarySearch(accNumber);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (acc != <span class="keyword">null</span>) System.out.println(acc);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span> System.out.println(<span class="keyword">"Account not found"</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> 3:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter account number to deposit amount: "</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int accountNumDeposit = scanner.nextInt();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword">// consume newline</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account accDeposit = binarySearch(accountNumDeposit);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (accDeposit != <span class="keyword">null</span>) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter amount to deposit: "</span>);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double amountDeposit = scanner.nextDouble();<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accDeposit.deposit(amountDeposit);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"Amount deposited successfully"</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">else</span> System.out.println(<span class="keyword">"Account not found"</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> 4:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter account number to withdraw amount: "</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int accountNumWithdraw = scanner.nextInt();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.nextLine(); <span class="keyword">// consume newline</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account accWithdraw = binarySearch(accountNumWithdraw);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (accWithdraw != <span class="keyword">null</span>) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(<span class="keyword">"Enter amount to withdraw: "</span>);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double amountWithdraw = scanner.nextDouble();<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accWithdraw.withdraw(amountWithdraw);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"Amount withdrawn successfully"</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">else</span> System.out.println(<span class="keyword">"Account not found"</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> 5:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit = <span class="keyword">true</span>;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">default</span>:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">"Invalid choice. Please try again."</span>);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">break</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;scanner.close();<br>
+                &nbsp;&nbsp;}<br>
+            }<br>
+        </div>
+        
+        <a href="#section0" class="button">Go to Contents</a>
+    </div>
+    <hr />
+    
+    <div class="section" id="section3">
+        <h2>3. Validating Alternative Implementations</h2>
+        <blockquote>
+            "The 3 alternative pointerlab examples from other students are all correct. I provided 3 alternative examples of pointerlab code to illustrate that there are other ways of implementing the code. These examples come from other students, and they were correct. Students that tried directly using the code in their code probably wouldn’t get working code since the code works in conjunction with other code, so I just wanted to clarify that the provided samples from other students did fully pass the tests when run with the rest of the code from the other students."
+        <br>
+            -Dr. Zhu
+        </blockquote>
+
+        <p>
+            I appreciate the clarification regarding the correctness of the provided examples. My intention was not to dispute their accuracy but to emphasize that the variations are minor and reflect different approaches to achieve the same result. These variations do not signify academic dishonesty; rather, they illustrate common solutions to a given problem.
+        </p>
+        <p>
+            To further clarify, if these examples are indeed from other students, it raises a question about academic integrity, given the striking similarities and <i>minor cosmetic differences</i>. This similarity could suggest either a common understanding or the potential use of generative AI tools with minimal modifications. 
+        </p>
+        <p>
+            My code condenses the business logic into <strong>3 lines of code</strong> and has comments to explain the logic.
+        </p>
+        <div class="code">
+            <span class="keyword">else</span> {<br>
+                &nbsp;&nbsp;<span class="keyword">// Go up the tree to find the next in-order node</span><br>
+                &nbsp;&nbsp;<span class="keyword">while</span> (iter->depth > 0 && iter->curr == iter->parents[iter->depth - 1]->right) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Move up to the parent node</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;iter->curr = iter->parents[--iter->depth];<br>
+                &nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;<span class="keyword">// Set current to the parent, or NULL if we're at the end</span><br>
+                &nbsp;&nbsp;iter->curr = (iter->depth > 0) ? iter->parents[--iter->depth] : <span class="keyword">NULL</span>;<br>
+            }<br>
+        </div>
+        <a href="#section0" class="button">Go to Contents</a>
+    </div>
+    <hr />
+    
+    <div class="section" id="section5">
+        <h2>4. Conclusion</h2>
+        <p>
+            In summary, my response addresses the points raised, while providing evidence of my consistent coding style and understanding of increment/decrement operators across different programming contexts. The use of these operators within array access is a valid approach, and the provided code examples illustrate my familiarity with such syntax.
+        </p>
+        <p>
+            Furthermore, the question of academic integrity surrounding the provided student examples highlights the need for a nuanced understanding of coding practices. I appreciate the opportunity to clarify these points and demonstrate my commitment to ethical coding practices.
+        </p>
+        <a href="#section0" class="button">Go to Contents</a>
+    </div>
+</body>
+</html>
